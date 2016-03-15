@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="KafkaConsumer"
+   iconfile="KAFKAC.png"
+   description="Apache Kafka Consumer"
+   tooltip="This plug-in allows reading messages from a specific topic in a Kafka stream"
+   category="Input"
+   classname="org.pentaho.di.trans.steps.kafka.consumer.KafkaConsumerMeta">
+   
+   <libraries>
+     <library name="pentaho-kafka-consumer.jar"/>
+   </libraries>
+   
+   <localized_category>
+     <category locale="en_US">Input</category>
+     <category locale="zh_CN">输入</category>
+   </localized_category>
+   
+   <localized_description>
+     <description locale="en_US">Apache Kafka Consumer</description>
+     <description locale="zh_CN">Apache Kafka Consumer</description>
+   </localized_description>
+   
+   <localized_tooltip>
+     <tooltip locale="en_US">Apache Kafka Consumer</tooltip>
+     <tooltip locale="zh_CN">Apache Kafka Consumer</tooltip>
+   </localized_tooltip>
+</plugin>
