@@ -1,0 +1,1 @@
+# pentaho-kafka-consumer-plugin
