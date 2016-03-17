@@ -100,6 +100,9 @@
 		<copy todir="${distrib}/${plugin.dir}">
 			<fileset dir="${resource}" includes="**/*.xml **/*.png" excludes="**/Thumbs.db" />
 		</copy>
+		<copy todir="${distrib}/${plugin.dir}">
+			<fileset dir="${libext}" includes="**/*.jar" excludes="**/Thumbs.db" />
+		</copy>
 
 	</target>
 
