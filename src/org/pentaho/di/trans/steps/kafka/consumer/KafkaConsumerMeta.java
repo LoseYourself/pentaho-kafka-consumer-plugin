@@ -75,7 +75,7 @@ public class KafkaConsumerMeta extends BaseStepMeta implements StepMetaInterface
 	private long timeout;
 	private boolean stopOnEmptyTopic;
 
-	Properties getKafkaProperties() {
+	public Properties getKafkaProperties() {
 		return kafkaProperties;
 	}
 
