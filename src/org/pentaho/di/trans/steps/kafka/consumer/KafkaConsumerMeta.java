@@ -34,6 +34,7 @@ import org.pentaho.di.core.row.ValueMeta;
 import org.pentaho.di.core.row.ValueMetaInterface;
 import org.pentaho.di.core.variables.VariableSpace;
 import org.pentaho.di.core.xml.XMLHandler;
+import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.repository.ObjectId;
 import org.pentaho.di.repository.Repository;
 import org.pentaho.di.trans.Trans;
@@ -54,6 +55,8 @@ import org.w3c.dom.Node;
  * 
  */
 public class KafkaConsumerMeta extends BaseStepMeta implements StepMetaInterface {
+	
+	private static Class<?> PKG = KafkaConsumerMeta.class; // for i18n purposes, needed by Translator2!!   $NON-NLS-1$
 
 	public static final String[] KAFKA_PROPERTIES_NAMES = new String[] { "zookeeper.connect", "group.id", "consumer.id",
 			"socket.timeout.ms", "socket.receive.buffer.bytes", "fetch.message.max.bytes", "auto.commit.interval.ms",
@@ -175,16 +178,13 @@ public class KafkaConsumerMeta extends BaseStepMeta implements StepMetaInterface
 			String input[], String output[], RowMetaInterface info) {
 
 		if (topic == null) {
-			remarks.add(new CheckResult(CheckResultInterface.TYPE_RESULT_ERROR, Messages
-					.getString("KafkaConsumerMeta.Check.InvalidTopic"), stepMeta));
+			remarks.add(new CheckResult(CheckResultInterface.TYPE_RESULT_ERROR, BaseMessages.getString(PKG, "KafkaConsumerMeta.Check.InvalidTopic"), stepMeta));
 		}
 		if (field == null) {
-			remarks.add(new CheckResult(CheckResultInterface.TYPE_RESULT_ERROR, Messages
-					.getString("KafkaConsumerMeta.Check.InvalidField"), stepMeta));
+			remarks.add(new CheckResult(CheckResultInterface.TYPE_RESULT_ERROR, BaseMessages.getString(PKG, "KafkaConsumerMeta.Check.InvalidField"), stepMeta));
 		}
 		if (keyField == null) {
-			remarks.add(new CheckResult(CheckResultInterface.TYPE_RESULT_ERROR, Messages
-					.getString("KafkaConsumerMeta.Check.InvalidKeyField"), stepMeta));
+			remarks.add(new CheckResult(CheckResultInterface.TYPE_RESULT_ERROR, BaseMessages.getString(PKG, "KafkaConsumerMeta.Check.InvalidKeyField"), stepMeta));
 		}
 		try {
 			new ConsumerConfig(kafkaProperties);
@@ -228,7 +228,7 @@ public class KafkaConsumerMeta extends BaseStepMeta implements StepMetaInterface
 				}
 			}
 		} catch (Exception e) {
-			throw new KettleXMLException(Messages.getString("KafkaConsumerMeta.Exception.loadXml"), e);
+			throw new KettleXMLException(BaseMessages.getString(PKG, "KafkaConsumerMeta.Exception.loadXml"), e);
 		}
 	}
 
